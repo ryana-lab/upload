@@ -115,7 +115,7 @@ html, body {
 .section-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 
 /* KPI cards — fluid grid, fits as many columns as the width allows */
-.kpi-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 10px; }
+.kpi-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
 
 /* On-time delivery scorecard — three stacked rows (early/ontime/late) */
 .ot-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow-sm); }
@@ -136,12 +136,12 @@ html, body {
 .ot-row.late .ot-bar-fill   { background: var(--red); }
 .ot-row-val { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; font-size: 13px; }
 .ot-empty { font-size: 12px; color: var(--mut); font-style: italic; padding: 12px 0; text-align: center; }
-.kpi { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 13px 14px; box-shadow: var(--shadow-sm); transition: all .15s; text-align: center; }
+.kpi { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow-sm); transition: all .15s; }
 
 /* On-time KPI tile — sized to fit inside the .kpi-row alongside other KPIs.
    Three small split values (early/ontime/late) under a single label. */
-.kpi-ontime { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 11px 12px 10px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center; }
-.kpi-ontime .kpi-label { font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--mut); font-weight: 700; margin-bottom: 6px; text-align: center; }
+.kpi-ontime { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px 12px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center; }
+.kpi-ontime .kpi-label { font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--mut); font-weight: 700; margin-bottom: 6px; }
 .kpi-ontime-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
 .kpi-ontime-row > div { display: flex; flex-direction: column; align-items: center; padding: 2px 0; border-radius: 6px; }
 .kpi-ontime-row .v { font-size: 17px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1.15; letter-spacing: -.01em; }
@@ -152,10 +152,10 @@ html, body {
 .kpi-ontime-row .v.muted { color: var(--mut); font-weight: 600; }
 .kpi-ontime-sub { font-size: 10.5px; color: var(--mut); margin-top: 6px; text-align: center; font-style: italic; }
 .kpi:hover { box-shadow: var(--shadow-md); }
-.kpi-label { font-size: 10.5px; color: var(--mut); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; margin-bottom: 5px; }
-.kpi-value { font-size: 21px; font-weight: 700; letter-spacing: -.025em; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.1; }
-.kpi-value .sup { font-size: 12px; font-weight: 600; color: var(--mut); margin-left: 3px; }
-.kpi-sub { font-size: 11px; color: var(--dim); margin-top: 4px; }
+.kpi-label { font-size: 11px; color: var(--mut); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; margin-bottom: 8px; }
+.kpi-value { font-size: 26px; font-weight: 700; letter-spacing: -.025em; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.kpi-value .sup { font-size: 14px; font-weight: 600; color: var(--mut); margin-left: 3px; }
+.kpi-sub { font-size: 12px; color: var(--dim); margin-top: 6px; }
 .kpi-delta { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-variant-numeric: tabular-nums; }
 .kpi-delta.up { background: var(--grn-soft); color: var(--grn); }
 .kpi-delta.down { background: var(--red-soft); color: var(--red); }
@@ -247,9 +247,9 @@ html, body {
 
 /* Doctor Grid */
 .dr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
-.dr-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 15px; cursor: pointer; transition: all .15s; box-shadow: var(--shadow-sm); }
+.dr-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; cursor: pointer; transition: all .15s; box-shadow: var(--shadow-sm); }
 .dr-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.dr-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 11px; }
+.dr-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 14px; }
 
 /* Engagement-status badge — used on grid cards (sm) and detail headers (lg) */
 .status-badge { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; border-radius: 999px; line-height: 1; white-space: nowrap; }
@@ -261,6 +261,9 @@ html, body {
 .status-badge.lg .status-label { font-size: 12px; letter-spacing: .04em; }
 .dr-name { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .dr-loc { font-size: 11px; color: var(--mut); margin-top: 3px; }
+.dr-practice { font-size: 12px; color: var(--ink); font-weight: 600; margin-top: 2px; line-height: 1.3; opacity: 0.85; display: flex; align-items: center; gap: 0; min-width: 0; }
+.dr-practice > .practice-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.practice-more { display: inline-block; flex-shrink: 0; font-size: 9.5px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 1px 6px; border-radius: 999px; margin-left: 5px; vertical-align: 1px; letter-spacing: .01em; cursor: help; opacity: 1; }
 .dr-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; margin-bottom: 10px; padding: 9px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .dr-stats > div { text-align: center; }
 .dr-stats label { color: var(--mut); display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; margin-bottom: 2px; }
@@ -332,6 +335,7 @@ html, body {
 .back-btn { font-family: inherit; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 6px; border: 1px solid var(--border); background: #fff; color: var(--dim); cursor: pointer; transition: all .15s; }
 .back-btn:hover { border-color: var(--accent); color: var(--accent); }
 .detail-name { font-size: 22px; font-weight: 800; letter-spacing: -.025em; color: var(--ink); }
+.detail-practice { font-size: 13px; color: var(--ink); font-weight: 600; margin-top: 4px; opacity: 0.75; letter-spacing: -.005em; }
 .detail-meta { font-size: 12px; color: var(--mut); display: flex; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
 .detail-meta span::before { content: "•"; margin-right: 6px; color: var(--accent); }
 .detail-meta span:first-child::before { display: none; }
@@ -377,6 +381,7 @@ html, body {
 .sh-list-row:last-child { border-bottom: none; }
 .sh-list-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; color: var(--ink); }
 .sh-list-meta { font-size: 11px; color: var(--mut); margin-top: 2px; font-weight: 400; }
+.sh-list-practice { font-size: 11.5px; color: var(--ink); font-weight: 600; opacity: 0.8; margin-top: 2px; }
 .sh-list-val { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); text-align: right; }
 .sh-pill { display: inline-flex; align-items: center; font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
 .sh-pill.ok     { background: var(--grn-soft);    color: var(--grn); }
@@ -424,6 +429,8 @@ html, body {
 .tl-client-card:hover { box-shadow: var(--shadow-md); border-color: var(--accent); }
 .tl-card-header { display: flex; align-items: flex-start; justify-content: space-between; padding: 18px 18px 10px; gap: 10px; }
 .tl-card-header .tl-cname { font-weight: 700; font-size: 15px; color: var(--ink); line-height: 1.2; }
+.tl-card-header .tl-cpractice { font-size: 12px; color: var(--ink); font-weight: 600; margin-top: 3px; opacity: 0.78; line-height: 1.25; display: flex; align-items: center; min-width: 0; }
+.tl-card-header .tl-cpractice > .practice-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .tl-card-header .tl-cloc { font-size: 11px; color: var(--mut); margin-top: 3px; }
 .tl-card-badges { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
 .tl-badge-active { display: inline-flex; align-items: center; gap: 5px; padding: 4px 11px; border-radius: 20px; font-size: 11px; font-weight: 600; background: var(--grn-soft); color: var(--grn); }
@@ -568,6 +575,7 @@ html, body {
 .dm-row:hover { background: var(--bg); }
 .dm-row + .dm-row { border-top: 1px solid rgba(226,232,240,.6); }
 .dm-row-name { font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.dm-row-practice { font-size: 12px; color: var(--ink); font-weight: 600; opacity: 0.78; margin-top: 3px; line-height: 1.3; }
 .dm-row-meta { font-size: 12px; color: var(--mut); margin-top: 3px; line-height: 1.5; }
 .dm-row-val { text-align: right; }
 .dm-row-rev { font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; font-size: 15px; }
@@ -623,7 +631,7 @@ html, body {
   .brand-row { padding: 10px 14px; gap: 10px; }
   .content { padding: 16px 14px 60px; }
   .section-title { font-size: 18px; }
-  .kpi-value { font-size: 20px; }
+  .kpi-value { font-size: 22px; }
   .sub-tab { min-width: 130px; padding: 10px 14px; }
   .sub-tab .sub-tab-count { font-size: 18px; }
 }
@@ -724,6 +732,7 @@ html, body {
       <button class="tab-btn" data-tab="status">📋 Current / New / Winback / Falloff / Inactive</button>
       <button class="tab-btn" data-tab="prodgrid">📦 Product Grid</button>
       <button class="tab-btn" data-tab="proddetail">📈 Product Detail</button>
+      <button class="tab-btn" data-tab="ops">⚙️ Operations</button>
       <button class="tab-btn" data-tab="timeline">🕐 Client Timeline</button>
       <button class="tab-btn" data-tab="map">🗺️ State Map</button>
     </div>
@@ -737,6 +746,7 @@ html, body {
     <div class="tab-panel" id="panel-status"></div>
     <div class="tab-panel" id="panel-prodgrid"></div>
     <div class="tab-panel" id="panel-proddetail"></div>
+    <div class="tab-panel" id="panel-ops"></div>
     <div class="tab-panel" id="panel-timeline"></div>
     <div class="tab-panel" id="panel-map"></div>
   </div>
@@ -884,6 +894,47 @@ function daysBetween(a, b) {
 function titleCase(s) {
   if (!s) return '';
   return String(s).toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+}
+
+/* ──────────────────────────────────────────
+   PRACTICE-PER-DOCTOR HELPERS
+   A doctor can bill under more than one practice (~6% of doctors do). Rather
+   than show whichever practice happened to load first, we track a count per
+   practice and treat the one with the most cases as the doctor's PRIMARY.
+   `buildPracticeInfo(map)` turns a Map<practiceName,count> into a summary:
+     { primary, list: [{name,count}], count }   (count = # of distinct practices)
+   `practiceDisplayHTML(info)` renders the primary plus a "(+N more)" badge
+   whose tooltip lists every practice and its case count. ───────────────────── */
+function tallyPractice(target, practiceName) {
+  // target is a Map<name,count>; ignore blanks so they never become "primary"
+  const p = (practiceName || '').trim();
+  if (!p) return;
+  target.set(p, (target.get(p) || 0) + 1);
+}
+
+function buildPracticeInfo(practiceMap) {
+  if (!practiceMap || practiceMap.size === 0) {
+    return { primary: '', list: [], count: 0 };
+  }
+  const list = Array.from(practiceMap.entries())
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count);
+  return { primary: list[0].name, list, count: list.length };
+}
+
+/* Render the practice line: primary name + a "(+N more)" badge when the doctor
+   bills under more than one practice. The badge's title lists them all so the
+   detail is one hover away without cluttering the card. `cls` sets the wrapper
+   class so callers can style per surface (dr-practice, detail-practice, etc.). */
+function practiceDisplayHTML(info, cls) {
+  if (!info || !info.primary) return '';
+  const extra = info.count - 1;
+  let badge = '';
+  if (extra > 0) {
+    const tip = info.list.map(p => `${p.name} (${p.count})`).join(' · ');
+    badge = `<span class="practice-more" title="${esc(tip)}">+${extra} more</span>`;
+  }
+  return `<div class="${cls}" title="${esc(info.primary)}"><span class="practice-name">${esc(info.primary)}</span>${badge}</div>`;
 }
 
 function normalizeState(raw) {
@@ -1138,23 +1189,21 @@ function normalizeRecords(rows) {
     const invDate = parseDate(r.Invoice_Date);
     const recDate = parseDate(r.Case_Received_Date);
     const shipDate = parseDate(r.Shipped);
-    // Due date — from the `dd` column added in the new CSV format. Compare it against
-    // the invoice date to classify each case as early / ontime / late.
+    // Due date — from the `dd` column. Classify each case's invoice timing against
+    // its promised due date by calendar day:
     //   early   = invoiced strictly before the due date (green)
-    //   ontime  = invoiced on the due date OR up to 1 day after it — a 1-day grace
-    //             period, so due-date and due-date+1 both count as on-time (yellow)
-    //   late    = invoiced 2 or more days after the due date (red)
-    // We compare by calendar day, not by hour, so timestamps differing by a few hours
-    // don't affect the bucket.
+    //   ontime  = invoiced on the same calendar day as the due date (yellow)
+    //   late    = invoiced strictly after the due date (red)
+    // Comparison is by date only, not time, so timestamps within the same day
+    // are still considered on-time.
     const dueDate = parseDate(r.dd || r.Due_Date || r.due_date);
     let onTimeStatus = null;
     if (dueDate && invDate) {
       const dueDay = Date.UTC(dueDate.getFullYear(), dueDate.getMonth(), dueDate.getDate());
       const invDay = Date.UTC(invDate.getFullYear(), invDate.getMonth(), invDate.getDate());
-      const daysPastDue = Math.round((invDay - dueDay) / 86400000);
-      if      (daysPastDue < 0)  onTimeStatus = 'early';
-      else if (daysPastDue <= 0) onTimeStatus = 'ontime';
-      else                       onTimeStatus = 'late';
+      if      (invDay < dueDay) onTimeStatus = 'early';
+      else if (invDay > dueDay) onTimeStatus = 'late';
+      else                       onTimeStatus = 'ontime';
     }
     const stateName = normalizeState(r.state);
     const stateA = stateAbbr(r.state);
@@ -1205,6 +1254,10 @@ function normalizeRecords(rows) {
       drLast: lastName,
       drName,
       drId: doctorId,
+      // Practice name (from `pracname` column) — the dental practice the
+      // doctor works at. Read with fallbacks in case the column name varies
+      // across CSV exports.
+      practice: titleCase((r.pracname || r.Practice_Name || r.practice || '').toString().trim()),
       email,
       phone,
       address: r.address || '',
@@ -1326,6 +1379,7 @@ function aggByDoctor() {
         d = {
           drId: r.drId,
           name: r.drName || '(unknown)',
+          practice: r.practice || '',
           email: r.email,
           phone: r.phone,
           city: r.city,
@@ -1336,17 +1390,18 @@ function aggByDoctor() {
           revenue: 0,
           units: 0,
           remakes: 0,
-          tatSum: 0,
-          tatN: 0,
           firstDate: r.anchorDate,
           lastDate: r.anchorDate,
           products: new Map(),
+          practices: new Map(),
           // On-time tracking: count cases by status. Only counted when the case has both
           // an invoice date and a due date, so the denominator is `ontimeCases`.
           onTimeEarly: 0,
           onTimeOnTime: 0,
           onTimeLate: 0,
-          ontimeCases: 0
+          ontimeCases: 0,
+          tatSum: 0,
+          tatN: 0
         };
         map.set(r.drId, d);
       }
@@ -1354,11 +1409,11 @@ function aggByDoctor() {
       d.revenue += r.netCost;
       d.units += r.qty;
       if (r.remake) d.remakes++;
-      if (r.tat != null && r.tat >= 0 && r.tat < 200) { d.tatSum += r.tat; d.tatN++; }
       if (r.anchorDate) {
         if (!d.firstDate || r.anchorDate < d.firstDate) d.firstDate = r.anchorDate;
         if (!d.lastDate || r.anchorDate > d.lastDate) d.lastDate = r.anchorDate;
       }
+      if (r.tat != null && r.tat >= 0 && r.tat < 200) { d.tatSum += r.tat; d.tatN++; }
       if (r.onTimeStatus) {
         d.ontimeCases++;
         if      (r.onTimeStatus === 'early')  d.onTimeEarly++;
@@ -1366,9 +1421,16 @@ function aggByDoctor() {
         else if (r.onTimeStatus === 'late')   d.onTimeLate++;
       }
       d.products.set(r.product, (d.products.get(r.product) || 0) + 1);
+      tallyPractice(d.practices, r.practice);
     }
-    return Array.from(map.values()).map(d => ({
+    return Array.from(map.values()).map(d => {
+      const practiceInfo = buildPracticeInfo(d.practices);
+      return {
       ...d,
+      // `practice` stays as the PRIMARY (most-cases) practice so existing
+      // references keep working; `practiceInfo` carries the full breakdown.
+      practice: practiceInfo.primary || d.practice || '',
+      practiceInfo,
       avgCase: d.cases ? d.revenue / d.cases : 0,
       remakeRate: d.cases ? d.remakes / d.cases : 0,
       avgTat: d.tatN ? d.tatSum / d.tatN : null,
@@ -1379,7 +1441,8 @@ function aggByDoctor() {
         .sort((a,b) => b[1]-a[1])
         .slice(0, 4)
         .map(p => p[0])
-    }));
+      };
+    });
   });
 }
 
@@ -1390,16 +1453,17 @@ function aggByProduct() {
       if (!r.product) continue;
       let p = map.get(r.product);
       if (!p) {
-        p = { name: r.product, category: r.productCat, cases: 0, revenue: 0, units: 0, remakes: 0, tatSum: 0, tatN: 0, doctors: new Set(),
-              onTimeEarly: 0, onTimeOnTime: 0, onTimeLate: 0, ontimeCases: 0 };
+        p = { name: r.product, category: r.productCat, cases: 0, revenue: 0, units: 0, remakes: 0, doctors: new Set(),
+              onTimeEarly: 0, onTimeOnTime: 0, onTimeLate: 0, ontimeCases: 0,
+              tatSum: 0, tatN: 0 };
         map.set(r.product, p);
       }
       p.cases++;
       p.revenue += r.netCost;
       p.units += r.qty;
       if (r.remake) p.remakes++;
-      if (r.tat != null && r.tat >= 0 && r.tat < 200) { p.tatSum += r.tat; p.tatN++; }
       p.doctors.add(r.drId);
+      if (r.tat != null && r.tat >= 0 && r.tat < 200) { p.tatSum += r.tat; p.tatN++; }
       if (r.onTimeStatus) {
         p.ontimeCases++;
         if      (r.onTimeStatus === 'early')  p.onTimeEarly++;
@@ -1653,6 +1717,8 @@ function openDoctorModal(title, sub, docs, exportName) {
   const view = (docs || []).map(d => ({
     id:       d.drId || d.id || '',
     name:     d.name || d.drName || d.nm || '—',
+    practice: d.practice || '',
+    practiceInfo: d.practiceInfo || null,
     city:     d.city || '',
     state:    d.stateAbbr || d.state || '',
     email:    d.email || '',
@@ -1700,6 +1766,9 @@ function openDoctorModal(title, sub, docs, exportName) {
               ${d.state ? `<span class="dm-pill muted">${esc(d.state)}</span>` : ''}
               ${pill}
             </div>
+            ${d.practiceInfo && d.practiceInfo.primary
+                ? practiceDisplayHTML(d.practiceInfo, 'dm-row-practice')
+                : (d.practice ? `<div class="dm-row-practice">${esc(d.practice)}</div>` : '')}
             <div class="dm-row-meta">${meta || '—'}</div>
             ${d.extra ? `<div class="dm-row-meta" style="margin-top:4px;color:var(--accent);font-weight:600">${esc(d.extra)}</div>` : ''}
           </div>
@@ -1738,7 +1807,7 @@ function aggDoctorsWhere(predicate) {
     if (!predicate(r)) continue;
     let d = map.get(r.drId);
     if (!d) {
-      d = { drId: r.drId, name: r.drName, email: r.email, phone: r.phone,
+      d = { drId: r.drId, name: r.drName, practice: r.practice || "", email: r.email, phone: r.phone,
             city: r.city, state: r.stateAbbr || r.state,
             revenue: 0, cases: 0, units: 0, firstDate: null, lastDate: null };
       map.set(r.drId, d);
@@ -2046,6 +2115,7 @@ function renderTab(tab, force) {
     case 'status':    renderStatus(); break;
     case 'prodgrid':  renderProductGrid(); break;
     case 'proddetail':renderProductDetail(); break;
+    case 'ops':       renderOps(); break;
     case 'timeline':  renderTimeline(); break;
     case 'map':       renderMap(); break;
   }
@@ -2346,57 +2416,6 @@ function renderOverview() {
     return months.map(m => byMonth.get(m.key) || 0);
   });
 
-  // ── Operations metrics (migrated from the former Operations tab) ──
-  const opsData = APP.filtered;
-  const tatBuckets = [
-    { label: '0–3 days',   min: 0,  max: 3,    count: 0 },
-    { label: '4–7 days',   min: 4,  max: 7,    count: 0 },
-    { label: '8–14 days',  min: 8,  max: 14,   count: 0 },
-    { label: '15–30 days', min: 15, max: 30,   count: 0 },
-    { label: '30+ days',   min: 31, max: 9999, count: 0 }
-  ];
-  for (const r of opsData) {
-    if (r.tat == null || r.tat < 0) continue;
-    for (const b of tatBuckets) { if (r.tat >= b.min && r.tat <= b.max) { b.count++; break; } }
-  }
-  const tatTotal = tatBuckets.reduce((s,b) => s + b.count, 0);
-  const sameWeekShip = tatTotal ? (tatBuckets[0].count + tatBuckets[1].count) / tatTotal : 0;
-  const labCost = opsData.filter(r => r.remake).reduce((s,r) => s + r.remakeDiscount, 0);
-
-  const opsDocsHi  = aggByDoctor().filter(d => d.cases >= 10).sort((a,b) => b.remakeRate - a.remakeRate).slice(0, 10);
-  const opsProdsHi = aggByProduct().filter(p => p.cases >= 20).sort((a,b) => b.remakeRate - a.remakeRate).slice(0, 10);
-
-  // Doctors whose cases get held most
-  const opsHoldMap = new Map();
-  for (const r of opsData) {
-    let d = opsHoldMap.get(r.drId);
-    if (!d) { d = { drId: r.drId, name: r.drName, state: r.state, total: 0, held: 0 }; opsHoldMap.set(r.drId, d); }
-    d.total++;
-    if (r.onHold) d.held++;
-  }
-  const opsDocsHeld = Array.from(opsHoldMap.values())
-    .filter(d => d.total >= 15 && d.held >= 3)
-    .map(d => ({ ...d, rate: d.held / d.total }))
-    .sort((a,b) => b.rate - a.rate)
-    .slice(0, 10);
-
-  // Weekly throughput — cases received vs shipped, last 26 weeks
-  const opsWeekKey = d => {
-    if (!d) return null;
-    const dt = new Date(d);
-    const monday = new Date(dt);
-    monday.setDate(dt.getDate() - ((dt.getDay() + 6) % 7));
-    monday.setHours(0,0,0,0);
-    return monday.toISOString().slice(0,10);
-  };
-  const opsWeeklyMap = new Map();
-  for (const r of opsData) {
-    const wkRec = opsWeekKey(r.received), wkShip = opsWeekKey(r.shipped);
-    if (wkRec)  { const w = opsWeeklyMap.get(wkRec)  || { wk: wkRec,  received: 0, shipped: 0 }; w.received++; opsWeeklyMap.set(wkRec, w); }
-    if (wkShip) { const w = opsWeeklyMap.get(wkShip) || { wk: wkShip, received: 0, shipped: 0 }; w.shipped++;  opsWeeklyMap.set(wkShip, w); }
-  }
-  const opsWeekly = Array.from(opsWeeklyMap.values()).sort((a,b) => a.wk.localeCompare(b.wk)).slice(-26);
-
   el.innerHTML = `
     <div class="section-header">
       <div>
@@ -2415,8 +2434,6 @@ function renderOverview() {
       <div class="kpi"><div class="kpi-label">Remake Rate</div><div class="kpi-value">${fmtPct(k.remakeRate)}</div><div class="kpi-sub">${fmtN(k.remakeCount)} cases reworked</div></div>
       <div class="kpi"><div class="kpi-label">On-Hold Rate</div><div class="kpi-value">${fmtPct(k.onHoldRate)}</div><div class="kpi-sub">${fmtN(k.onHoldCount)} held cases</div></div>
       <div class="kpi"><div class="kpi-label">Avg Turnaround</div><div class="kpi-value">${k.avgTAT == null ? '—' : k.avgTAT.toFixed(1) + '<span class="sup">days</span>'}</div><div class="kpi-sub">received → shipped</div></div>
-      <div class="kpi"><div class="kpi-label">Same-Week Ship</div><div class="kpi-value">${fmtPct(sameWeekShip)}</div><div class="kpi-sub">≤ 7 day turnaround</div></div>
-      <div class="kpi"><div class="kpi-label">Lab-Absorbed Cost</div><div class="kpi-value">${fmtUSD(labCost)}</div><div class="kpi-sub">sum of remake discounts</div></div>
     </div>
 
     <div class="card mb20">
@@ -2460,77 +2477,6 @@ function renderOverview() {
         <div class="chart-title">Scanner / Source Mix</div>
         <div class="chart-wrap short"><canvas id="c0e"></canvas></div>
       </div>
-    </div>
-
-    <div class="section-header" style="margin-top:10px">
-      <div>
-        <div class="section-title">Operations</div>
-        <div class="section-sub">Holds, remakes, and turnaround — production quality and throughput.</div>
-      </div>
-    </div>
-
-    <div class="flex-row">
-      <div class="card flex-1" style="padding:0">
-        <div class="card-head"><div><div class="card-title">Highest-Remake Doctors</div><div class="card-sub">≥10 cases · top 10</div></div></div>
-        <table class="dtable">
-          <thead><tr><th>Doctor</th><th class="num">Cases</th><th class="num">Remakes</th><th class="num">Rate</th></tr></thead>
-          <tbody>${opsDocsHi.map(d => `
-            <tr class="clk" data-id="${esc(d.drId)}">
-              <td><b>${esc(d.name)}</b> <span class="text-mut" style="font-size:10px">${esc(d.state||'')}</span></td>
-              <td class="num">${fmtN(d.cases)}</td><td class="num">${fmtN(d.remakes)}</td>
-              <td class="num"><span class="tag ${d.remakeRate>0.1?'tag-red':'tag-amb'}">${fmtPct(d.remakeRate)}</span></td>
-            </tr>
-          `).join('') || '<tr><td colspan="4" class="dt-empty">No qualifying doctors</td></tr>'}</tbody>
-        </table>
-      </div>
-      <div class="card flex-1" style="padding:0">
-        <div class="card-head"><div><div class="card-title">Highest-Remake Products</div><div class="card-sub">≥20 cases · top 10</div></div></div>
-        <table class="dtable">
-          <thead><tr><th>Product</th><th class="num">Cases</th><th class="num">Remakes</th><th class="num">Rate</th></tr></thead>
-          <tbody>${opsProdsHi.map(p => `
-            <tr class="clk" data-product="${esc(p.name)}">
-              <td><b>${esc(p.name)}</b></td>
-              <td class="num">${fmtN(p.cases)}</td><td class="num">${fmtN(p.remakes)}</td>
-              <td class="num"><span class="tag ${p.remakeRate>0.1?'tag-red':'tag-amb'}">${fmtPct(p.remakeRate)}</span></td>
-            </tr>
-          `).join('') || '<tr><td colspan="4" class="dt-empty">No qualifying products</td></tr>'}</tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="flex-row">
-      <div class="card flex-1" style="padding:0">
-        <div class="card-head"><div><div class="card-title">Doctors Whose Cases Get Held Most</div><div class="card-sub">≥15 cases & ≥3 holds · top 10</div></div></div>
-        <table class="dtable">
-          <thead><tr><th>Doctor</th><th class="num">Cases</th><th class="num">Held</th><th class="num">Rate</th></tr></thead>
-          <tbody>${opsDocsHeld.map(d => `
-            <tr class="clk" data-id="${esc(d.drId)}">
-              <td><b>${esc(d.name)}</b> <span class="text-mut" style="font-size:10px">${esc(d.state||'')}</span></td>
-              <td class="num">${fmtN(d.total)}</td><td class="num">${fmtN(d.held)}</td>
-              <td class="num"><span class="tag ${d.rate>0.2?'tag-red':d.rate>0.1?'tag-amb':'tag-grn'}">${fmtPct(d.rate)}</span></td>
-            </tr>
-          `).join('') || '<tr><td colspan="4" class="dt-empty">No qualifying doctors</td></tr>'}</tbody>
-        </table>
-      </div>
-      <div class="card flex-1">
-        <div class="chart-title">TAT Distribution by Bucket</div>
-        <div class="card-sub" style="margin:-10px 0 10px;font-size:11px;color:var(--mut)">All cases with a recorded turnaround.</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px">
-          ${tatBuckets.map(b => `
-            <div style="background:var(--bg);border-radius:8px;padding:14px 16px">
-              <div style="font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;font-weight:700;margin-bottom:4px">${esc(b.label)}</div>
-              <div style="font-size:22px;font-weight:800;font-variant-numeric:tabular-nums">${fmtN(b.count)}</div>
-              <div style="font-size:11px;color:var(--dim);margin-top:2px">${tatTotal?(b.count/tatTotal*100).toFixed(1):'0'}% of cases</div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb20">
-      <div class="chart-title">Weekly Throughput — Cases Received vs Shipped</div>
-      <div class="card-sub" style="margin:-10px 0 10px;font-size:11px;color:var(--mut)">Last 26 weeks. A gap where received &gt; shipped means a growing backlog.</div>
-      <div class="chart-wrap"><canvas id="ovWeekly"></canvas></div>
     </div>
   `;
 
@@ -2589,18 +2535,6 @@ function renderOverview() {
     options: { ...co, cutout: '60%', scales: { x: { display: false }, y: { display: false } }, plugins: { ...co.plugins, legend: { position: 'right' } } }
   });
 
-  makeChart('ovWeekly', {
-    type: 'line',
-    data: {
-      labels: opsWeekly.map(w => { const d = new Date(w.wk); return (d.getMonth()+1) + '/' + d.getDate(); }),
-      datasets: [
-        { label: 'Received', data: opsWeekly.map(w => w.received), borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.1)', borderWidth: 2.5, tension: .3, fill: false, pointRadius: 2 },
-        { label: 'Shipped',  data: opsWeekly.map(w => w.shipped),  borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.1)', borderWidth: 2.5, tension: .3, fill: false, pointRadius: 2 }
-      ]
-    },
-    options: { ...co, plugins: { ...co.plugins, legend: { ...co.plugins.legend, position: 'bottom' } } }
-  });
-
   renderHBars('hb0r', remakeReasons.slice(0, 7).map(r => [r.name, r.count]), 'count',
     (reason) => openDoctorModal(
       'Remake Reason: ' + reason,
@@ -2631,9 +2565,6 @@ function renderOverview() {
       on_hold: r.onHold ? 'Y' : 'N', days_on_hold: r.daysOnHold, scanner: r.scanner, tat_days: r.tat
     })));
   });
-
-  el.querySelectorAll('tr.clk[data-id]').forEach(tr => tr.addEventListener('click', () => { APP.selectedDoctorId = tr.dataset.id; switchTab('docdetail'); }));
-  el.querySelectorAll('tr.clk[data-product]').forEach(tr => tr.addEventListener('click', () => { APP.selectedProduct = tr.dataset.product; switchTab('proddetail'); }));
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -2655,12 +2586,13 @@ function renderSalesHub() {
   for (const r of APP.raw) {
     let d = docMap.get(r.drId);
     if (!d) {
-      d = { drId: r.drId, name: r.drName, email: r.email, city: r.city, state: r.state,
-            cases: 0, rv: 0, units: 0, dates: [], products: new Set(),
+      d = { drId: r.drId, name: r.drName, practice: r.practice || "", email: r.email, city: r.city, state: r.state,
+            cases: 0, rv: 0, units: 0, dates: [], products: new Set(), practices: new Map(),
             firstDate: null, lastDate: null };
       docMap.set(r.drId, d);
     }
     d.cases++; d.rv += r.netCost; d.units += r.qty;
+    tallyPractice(d.practices, r.practice);
     if (r.product) d.products.add(r.product);
     if (r.anchorDate) {
       d.dates.push(r.anchorDate);
@@ -2683,6 +2615,8 @@ function renderSalesHub() {
       if (g > maxGap) maxGap = g;
     }
     d.maxGap = maxGap;
+    d.practiceInfo = buildPracticeInfo(d.practices);
+    d.practice = d.practiceInfo.primary || d.practice || '';
   }
   // Per-doctor monthly revenue trend (used for velocity section)
   for (const r of APP.raw) {
@@ -3124,11 +3058,15 @@ function renderSalesHub() {
     type: 'bar',
     data: {
       labels: allMonths.map(m => fmtMonthKey(m).replace(' ', " '")),
+      // Map zero counts to null so Chart.js skips them entirely. Without this,
+      // `minBarLength: 8` would draw an 8px phantom bar even for 0 doctors,
+      // producing misleading slivers in months with no churn of a given type
+      // (e.g. Apr/May 2026 where no one is 60+ days silent yet).
       datasets: [
-        { ...flowBarOpts, label: '🟢 Acquired',           data: allMonths.map(m => acqByMonth[m] || 0),             backgroundColor: '#059669' },
-        { ...flowBarOpts, label: '🌱 New & Lost',         data: allMonths.map(m => -(churnNewByMonth[m]     || 0)), backgroundColor: '#2563eb' },
-        { ...flowBarOpts, label: '🔄 Winback & Lost',     data: allMonths.map(m => -(churnWinbackByMonth[m] || 0)), backgroundColor: '#7c3aed' },
-        { ...flowBarOpts, label: '❤️ Established & Lost', data: allMonths.map(m => -(churnEstByMonth[m]     || 0)), backgroundColor: '#dc2626' }
+        { ...flowBarOpts, label: '🟢 Acquired',           data: allMonths.map(m => acqByMonth[m]               || null),          backgroundColor: '#059669' },
+        { ...flowBarOpts, label: '🌱 New & Lost',         data: allMonths.map(m => churnNewByMonth[m]     ? -churnNewByMonth[m]     : null), backgroundColor: '#2563eb' },
+        { ...flowBarOpts, label: '🔄 Winback & Lost',     data: allMonths.map(m => churnWinbackByMonth[m] ? -churnWinbackByMonth[m] : null), backgroundColor: '#7c3aed' },
+        { ...flowBarOpts, label: '❤️ Established & Lost', data: allMonths.map(m => churnEstByMonth[m]     ? -churnEstByMonth[m]     : null), backgroundColor: '#dc2626' }
       ]
     },
     options: {
@@ -3185,6 +3123,7 @@ function renderSalesHub() {
       <div class="sh-list-row" data-id="${esc(it.id)}">
         <div>
           <div class="sh-list-name">${esc(it.name)}</div>
+          ${it.practice ? `<div class="sh-list-practice">${esc(it.practice)}</div>` : ''}
           <div class="sh-list-meta">${esc(it.meta)}</div>
         </div>
         ${it.pill ? `<span class="sh-pill ${it.pillClass}">${esc(it.pill)}</span>` : '<span></span>'}
@@ -3197,29 +3136,34 @@ function renderSalesHub() {
   }
 
   shList('shRiskList', atRiskHV.slice(0, 15).map(d => ({
-    id: d.drId, name: d.name, meta: `${d.city || '—'}, ${d.state || ''} · ${d.cases} cases`,
+    id: d.drId, name: d.name, practice: d.practice || '',
+    meta: `${d.city || '—'}, ${d.state || ''} · ${d.cases} cases`,
     pill: `${d.dsl}d silent`, pillClass: 'warn', val: fmtUSD(d.rv)
   })), { empty: 'No high-value at-risk accounts — good sign.' });
 
   shList('shWinList', winbackTargets.map(d => ({
-    id: d.drId, name: d.name, meta: `${d.city || '—'}, ${d.state || ''} · last case ${fmtDateShort(d.lastDate)}`,
+    id: d.drId, name: d.name, practice: d.practice || '',
+    meta: `${d.city || '—'}, ${d.state || ''} · last case ${fmtDateShort(d.lastDate)}`,
     pill: `${d.dsl}d gone`, pillClass: 'danger', val: fmtUSD(d.rv)
   })), { empty: 'No recent high-value churn to win back.' });
 
   shList('shTopList', top10.map((d, i) => ({
-    id: d.drId, name: `${i+1}. ${d.name}`, meta: `${d.city || '—'}, ${d.state || ''} · ${d.cases} cases · ${d.pCount} products`,
+    id: d.drId, name: `${i+1}. ${d.name}`, practice: d.practice || '',
+    meta: `${d.city || '—'}, ${d.state || ''} · ${d.cases} cases · ${d.pCount} products`,
     pill: d.dsl != null ? (d.dsl <= 30 ? 'Active' : d.dsl <= SH_RISK_HI ? 'At-risk' : 'Churned') : '',
     pillClass: d.dsl != null ? (d.dsl <= 30 ? 'ok' : d.dsl <= SH_RISK_HI ? 'warn' : 'danger') : 'info',
     val: fmtUSD(d.rv)
   })), { empty: 'No doctors.' });
 
   shList('shGrowList', growers.slice(0, 10).map(g => ({
-    id: g.dr.drId, name: g.dr.name, meta: `${fmtUSD(g.prior)} → ${fmtUSD(g.recent)} (3mo)`,
+    id: g.dr.drId, name: g.dr.name, practice: g.dr.practice || '',
+    meta: `${fmtUSD(g.prior)} → ${fmtUSD(g.recent)} (3mo)`,
     pill: `+${g.pct.toFixed(0)}%`, pillClass: 'ok', val: '+' + fmtUSD(g.delta)
   })), { empty: 'No clear accelerators this quarter.' });
 
   shList('shDeclList', decliners.slice(0, 10).map(g => ({
-    id: g.dr.drId, name: g.dr.name, meta: `${fmtUSD(g.prior)} → ${fmtUSD(g.recent)} (3mo)`,
+    id: g.dr.drId, name: g.dr.name, practice: g.dr.practice || '',
+    meta: `${fmtUSD(g.prior)} → ${fmtUSD(g.recent)} (3mo)`,
     pill: `${g.pct.toFixed(0)}%`, pillClass: 'danger', val: fmtUSD(g.delta)
   })), { empty: 'No clear decliners this quarter.' });
 
@@ -3433,7 +3377,7 @@ function renderDoctorGrid() {
 
     <div class="filter-bar">
       <div class="search-wrap">
-        <input type="text" class="search-input" id="dgQuery" placeholder="Search by name, email, city, or state…">
+        <input type="text" class="search-input" id="dgQuery" placeholder="Search by name, practice, email, city, or state…">
       </div>
       <div class="pill-group" id="dgSort">
         <button class="pill active" data-sort="revenue">Revenue</button>
@@ -3476,10 +3420,11 @@ function dgFilteredDocs() {
   if (DGRID.query) {
     const qq = DGRID.query;
     docs = docs.filter(d =>
-      (d.name && d.name.toLowerCase().includes(qq)) ||
-      (d.email && d.email.toLowerCase().includes(qq)) ||
-      (d.city && d.city.toLowerCase().includes(qq)) ||
-      (d.state && d.state.toLowerCase().includes(qq))
+      (d.name     && d.name.toLowerCase().includes(qq))     ||
+      (d.practice && d.practice.toLowerCase().includes(qq)) ||
+      (d.email    && d.email.toLowerCase().includes(qq))    ||
+      (d.city     && d.city.toLowerCase().includes(qq))     ||
+      (d.state    && d.state.toLowerCase().includes(qq))
     );
   }
   if (DGRID.sort === 'name') docs.sort((a,b) => a.name.localeCompare(b.name));
@@ -3509,6 +3454,7 @@ function drawDGrid() {
         <div class="dr-card-head">
           <div style="min-width:0">
             <div class="dr-name">${esc(d.name)}</div>
+            ${practiceDisplayHTML(d.practiceInfo, 'dr-practice')}
             <div class="dr-loc">${esc(d.city || '—')}${d.state ? ', ' + esc(d.state) : ''}</div>
             ${statusBadgeHTML(d.drId, 'sm')}
           </div>
@@ -3567,16 +3513,22 @@ function renderDoctorDetail() {
   const totalUnits = cases.reduce((s,r) => s + r.qty, 0);
   const remakes = cases.filter(r => r.remake).length;
   const onHold = cases.filter(r => r.onHold).length;
+  // Average turnaround (received → shipped) across this doctor's valid cases
+  const ddTat = (() => {
+    let sum = 0, n = 0;
+    for (const r of cases) {
+      if (r.tat != null && r.tat >= 0 && r.tat < 200) { sum += r.tat; n++; }
+    }
+    return n ? sum / n : null;
+  })();
   const first = cases.reduce((m,r) => !m || (r.anchorDate && r.anchorDate < m) ? r.anchorDate : m, null);
   const last = cases.reduce((m,r) => !m || (r.anchorDate && r.anchorDate > m) ? r.anchorDate : m, null);
   const s = cases[0];
 
-  // Average turnaround (received → shipped), same validity bounds used everywhere else
-  let ddTatSum = 0, ddTatN = 0;
-  for (const r of cases) {
-    if (r.tat != null && r.tat >= 0 && r.tat < 200) { ddTatSum += r.tat; ddTatN++; }
-  }
-  const ddAvgTat = ddTatN ? ddTatSum / ddTatN : null;
+  // Practice breakdown for this doctor (a doctor may bill under multiple practices).
+  const ddPracticeMap = new Map();
+  for (const r of cases) tallyPractice(ddPracticeMap, r.practice);
+  const ddPracticeInfo = buildPracticeInfo(ddPracticeMap);
 
   // Product mix + TAT per product
   const pmap = new Map();
@@ -3645,6 +3597,7 @@ function renderDoctorDetail() {
           <span>${esc(s.drName)}</span>
           ${statusBadgeHTML(APP.selectedDoctorId, 'lg')}
         </div>
+        ${practiceDisplayHTML(ddPracticeInfo, 'detail-practice')}
         <div class="detail-meta">
           ${s.email ? `<span>${esc(s.email)}</span>` : ''}
           ${s.phone ? `<span>${esc(s.phone)}</span>` : ''}
@@ -3660,7 +3613,7 @@ function renderDoctorDetail() {
       <div class="kpi"><div class="kpi-label">Cases</div><div class="kpi-value">${fmtN(cases.length)}</div><div class="kpi-sub">${fmtN(totalUnits)} units</div></div>
       <div class="kpi"><div class="kpi-label">Avg Case</div><div class="kpi-value">${fmtUSDFull(cases.length ? totalRev/cases.length : 0)}</div></div>
       <div class="kpi"><div class="kpi-label">Remake Rate</div><div class="kpi-value">${fmtPct(remakes/cases.length)}</div><div class="kpi-sub">${remakes} of ${cases.length}</div></div>
-      <div class="kpi"><div class="kpi-label">Avg Turnaround</div><div class="kpi-value">${ddAvgTat == null ? '—' : ddAvgTat.toFixed(1) + '<span class="sup">days</span>'}</div><div class="kpi-sub">received → shipped</div></div>
+      <div class="kpi"><div class="kpi-label">Avg Turnaround</div><div class="kpi-value">${ddTat == null ? '—' : ddTat.toFixed(1) + '<span class="sup">days</span>'}</div><div class="kpi-sub">received → shipped</div></div>
       ${onTimeKpiHTML(ddOnTime)}
       <div class="kpi"><div class="kpi-label">On Hold</div><div class="kpi-value">${onHold}</div><div class="kpi-sub">cases delayed</div></div>
       <div class="kpi"><div class="kpi-label">First → Last</div><div class="kpi-value" style="font-size:15px">${fmtDateShort(first)} – ${fmtDateShort(last)}</div></div>
@@ -3670,7 +3623,7 @@ function renderDoctorDetail() {
       <div class="flex-1">${onTimeCardHTML(ddOnTime, 'On-Time Delivery')}</div>
       <div class="card flex-1">
         <div class="chart-title">Invoiced vs. Due — Latest 60 Cases</div>
-        <div class="card-sub" style="margin:-10px 0 10px;font-size:11px;color:var(--mut)">Each dot is one case, colored by status: green early, amber on-time (due date or up to 1 day after), red late.</div>
+        <div class="card-sub" style="margin:-10px 0 10px;font-size:11px;color:var(--mut)">Each dot is one case. Above the line = late; on the line = on-time; below = early.</div>
         <div class="chart-wrap" style="height:200px"><canvas id="ddOnTimeScatter"></canvas></div>
       </div>
     </div>
@@ -3785,9 +3738,8 @@ function renderDoctorDetail() {
       plugins: { ...co.plugins, legend: { display: false },
         tooltip: { callbacks: { label: (ctx) => {
           const p = ctx.raw;
-          if (p.status === 'late')  return p.y + ' days late';
-          if (p.status === 'early') return Math.abs(p.y) + ' day' + (p.y === -1 ? '' : 's') + ' early';
-          if (p.y === 1)            return '1 day past due · on-time';
+          if (p.y > 0)  return p.y + ' day' + (p.y===1?'':'s') + ' late';
+          if (p.y < 0)  return Math.abs(p.y) + ' day' + (p.y===-1?'':'s') + ' early';
           return 'On-time';
         } } } },
       scales: {
@@ -3843,10 +3795,11 @@ function computeDoctorStatus() {
     let d = map.get(r.drId);
     if (!d) {
       d = {
-        drId: r.drId, name: r.drName, email: r.email, phone: r.phone, address: r.address,
+        drId: r.drId, name: r.drName, practice: r.practice || "", email: r.email, phone: r.phone, address: r.address,
         city: r.city, state: r.state, stateAbbr: r.stateAbbr,
         totalCases: 0, totalRev: 0, totalUnits: 0, remakes: 0,
         tatSum: 0, tatN: 0,
+        practices: new Map(),
         dates: [], firstDate: null, lastDate: null
       };
       map.set(r.drId, d);
@@ -3855,6 +3808,7 @@ function computeDoctorStatus() {
     d.totalRev += r.netCost;
     d.totalUnits += r.qty;
     if (r.remake) d.remakes++;
+    tallyPractice(d.practices, r.practice);
     if (r.tat != null && r.tat >= 0 && r.tat < 200) { d.tatSum += r.tat; d.tatN++; }
     if (r.anchorDate) {
       d.dates.push(r.anchorDate);
@@ -3884,6 +3838,9 @@ function computeDoctorStatus() {
     d.maxGapDays = Math.round(maxGap / 864e5);
     d.gapBeforeReturn = d.maxGapDays;
     d.returnedDate = gapEndDate;
+
+    d.practiceInfo = buildPracticeInfo(d.practices);
+    d.practice = d.practiceInfo.primary || d.practice || '';
 
     d.daysSinceLast = Math.floor(sinceLast / 864e5);
     d.remakeRate = d.totalCases ? d.remakes / d.totalCases : 0;
@@ -3977,7 +3934,7 @@ function renderStatus() {
 
     <div class="filter-bar">
       <div class="search-wrap">
-        <input type="text" class="search-input" id="stQuery" placeholder="Search by name, email, city, state…" value="${esc(STATUS.query)}">
+        <input type="text" class="search-input" id="stQuery" placeholder="Search by name, practice, email, city, state…" value="${esc(STATUS.query)}">
       </div>
       <div class="text-mut" style="font-size:12px;margin-left:auto" id="stCount"></div>
     </div>
@@ -4020,6 +3977,9 @@ function renderStatus() {
     downloadCSV(`${STATUS.seg}_doctors.csv`, segDocs.map(d => ({
       doctor: d.name, email: d.email, phone: d.phone, address: d.address,
       city: d.city, state: d.state, status: d.status,
+      practice: d.practiceInfo ? d.practiceInfo.primary : (d.practice || ''),
+      all_practices: d.practiceInfo && d.practiceInfo.count > 1
+        ? d.practiceInfo.list.map(p => p.name + ' (' + p.count + ')').join(' | ') : '',
       revenue: d.totalRev, units: d.totalUnits, cases: d.totalCases,
       remake_rate: d.remakeRate, avg_tat_days: d.avgTAT,
       last_case: isoDate(d.lastDate), days_since_last: d.daysSinceLast,
@@ -4038,11 +3998,12 @@ function filterStatusSegment(docs) {
   else                          segDocs = docs.filter(d => d.status === STATUS.seg);
   if (STATUS.query) {
     segDocs = segDocs.filter(d =>
-      (d.name  || '').toLowerCase().includes(STATUS.query) ||
-      (d.email || '').toLowerCase().includes(STATUS.query) ||
-      (d.phone || '').toLowerCase().includes(STATUS.query) ||
-      (d.city  || '').toLowerCase().includes(STATUS.query) ||
-      (d.state || '').toLowerCase().includes(STATUS.query)
+      (d.name     || '').toLowerCase().includes(STATUS.query) ||
+      (d.practice || '').toLowerCase().includes(STATUS.query) ||
+      (d.email    || '').toLowerCase().includes(STATUS.query) ||
+      (d.phone    || '').toLowerCase().includes(STATUS.query) ||
+      (d.city     || '').toLowerCase().includes(STATUS.query) ||
+      (d.state    || '').toLowerCase().includes(STATUS.query)
     );
   }
   return segDocs;
@@ -4057,6 +4018,7 @@ function drawStatusBody(docs, segs) {
   const isWb = STATUS.seg === 'winback';
   const cols = [
     { key: 'name',         label: 'Doctor',            cls: '',     get: d => (d.name || '').toLowerCase() },
+    { key: 'practice',     label: 'Practice',          cls: '',     get: d => (d.practice || '').toLowerCase() },
     { key: 'email',        label: 'Email',             cls: '',     get: d => (d.email || '').toLowerCase() },
     { key: 'phone',        label: 'Phone',             cls: '',     get: d => (d.phone || '') },
     { key: 'address',      label: 'Address',           cls: '',     get: d => (d.address || '').toLowerCase() },
@@ -4147,6 +4109,7 @@ function drawStatusBody(docs, segs) {
     return `
       <tr class="clk" data-id="${esc(d.drId)}">
         <td><b>${esc(d.name)}</b>${isWb ? '<span class="st-wb-icon" title="Winback">🔄</span>' : ''}</td>
+        <td>${d.practiceInfo && d.practiceInfo.primary ? esc(d.practiceInfo.primary) + (d.practiceInfo.count > 1 ? ` <span class="practice-more" title="${esc(d.practiceInfo.list.map(p => p.name + ' (' + p.count + ')').join(' · '))}">+${d.practiceInfo.count - 1}</span>` : '') : '<span class="text-mut">—</span>'}</td>
         <td>${emailLink}</td>
         <td>${phoneLink}</td>
         <td title="${esc(d.address || '')}">${addressShort}</td>
@@ -4311,13 +4274,6 @@ function renderProductDetail() {
   const remakes = cases.filter(r => r.remake).length;
   const sample = cases[0];
 
-  // Average turnaround (received → shipped), same validity bounds used everywhere else
-  let pdTatSum = 0, pdTatN = 0;
-  for (const r of cases) {
-    if (r.tat != null && r.tat >= 0 && r.tat < 200) { pdTatSum += r.tat; pdTatN++; }
-  }
-  const pdAvgTat = pdTatN ? pdTatSum / pdTatN : null;
-
   // Monthly: revenue, units, remake%, tat — use shared valid-month list
   const validMonths = new Set(aggByMonth().map(m => m.key));
   const mmap = new Map();
@@ -4405,7 +4361,6 @@ function renderProductDetail() {
       <div class="kpi"><div class="kpi-label">Units</div><div class="kpi-value">${fmtN(totalUnits)}</div></div>
       <div class="kpi"><div class="kpi-label">Avg Unit $</div><div class="kpi-value">${fmtUSDFull(totalUnits ? totalRev/totalUnits : 0)}</div></div>
       <div class="kpi"><div class="kpi-label">Remake Rate</div><div class="kpi-value">${fmtPct(remakes/cases.length)}</div><div class="kpi-sub">${remakes} of ${cases.length}</div></div>
-      <div class="kpi"><div class="kpi-label">Avg Turnaround</div><div class="kpi-value">${pdAvgTat == null ? '—' : pdAvgTat.toFixed(1) + '<span class="sup">days</span>'}</div><div class="kpi-sub">received → shipped</div></div>
       ${onTimeKpiHTML(pdOnTime)}
     </div>
 
@@ -4502,6 +4457,323 @@ function renderProductDetail() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   TAB 8: OPERATIONS — Hold / Remake / Turnaround
+   ═══════════════════════════════════════════════════════════════ */
+
+function renderOps() {
+  const el = document.getElementById('panel-ops');
+  const data = APP.filtered;
+  const k = aggKPIs();
+  const holdReasons = aggHoldReasons();
+  const remakeReasons = aggRemakeReasons();
+
+  const tatBuckets = [
+    { label: '0–3 days', min: 0, max: 3, count: 0 },
+    { label: '4–7 days', min: 4, max: 7, count: 0 },
+    { label: '8–14 days', min: 8, max: 14, count: 0 },
+    { label: '15–30 days', min: 15, max: 30, count: 0 },
+    { label: '30+ days', min: 31, max: 9999, count: 0 }
+  ];
+  for (const r of data) {
+    if (r.tat == null || r.tat < 0) continue;
+    for (const b of tatBuckets) { if (r.tat >= b.min && r.tat <= b.max) { b.count++; break; } }
+  }
+  const tatTotal = tatBuckets.reduce((s,b) => s + b.count, 0);
+
+  const catRemakes = aggByCategory().map(c => {
+    const inCat = data.filter(r => r.productCat === c.name);
+    const rm = inCat.filter(r => r.remake).length;
+    return { name: c.name, total: inCat.length, remakes: rm, rate: inCat.length ? rm/inCat.length : 0 };
+  }).filter(c => c.total > 30).sort((a,b) => b.rate - a.rate);
+
+  const docsHi = aggByDoctor().filter(d => d.cases >= 10).sort((a,b) => b.remakeRate - a.remakeRate).slice(0, 10);
+  const prodsHi = aggByProduct().filter(p => p.cases >= 20).sort((a,b) => b.remakeRate - a.remakeRate).slice(0, 10);
+  const onHoldCases = data.filter(r => r.onHold).sort((a,b) => b.daysOnHold - a.daysOnHold);
+  const labCost = data.filter(r => r.remake).reduce((s,r) => s + r.remakeDiscount, 0);
+
+  // ─── EXPANDED OPS METRICS ───
+
+  // Weekly throughput (cases received vs shipped per week)
+  const weekKey = d => {
+    if (!d) return null;
+    const dt = new Date(d);
+    const day = dt.getDay();
+    const monday = new Date(dt);
+    monday.setDate(dt.getDate() - ((day + 6) % 7));
+    monday.setHours(0,0,0,0);
+    return monday.toISOString().slice(0,10);
+  };
+  const weeklyMap = new Map();
+  for (const r of data) {
+    const wkRec = weekKey(r.received), wkShip = weekKey(r.shipped);
+    if (wkRec) { const w = weeklyMap.get(wkRec) || { wk: wkRec, received: 0, shipped: 0 }; w.received++; weeklyMap.set(wkRec, w); }
+    if (wkShip) { const w = weeklyMap.get(wkShip) || { wk: wkShip, received: 0, shipped: 0 }; w.shipped++; weeklyMap.set(wkShip, w); }
+  }
+  const weeklyThroughput = Array.from(weeklyMap.values()).sort((a,b) => a.wk.localeCompare(b.wk)).slice(-26); // last 26 weeks
+
+  // Hold-aging — how long have currently-held cases been waiting?
+  const holdAgingBuckets = [
+    { label: '0–3 days',  min: 0,  max: 3,    count: 0, color: '#65a30d' },
+    { label: '4–7 days',  min: 4,  max: 7,    count: 0, color: '#d97706' },
+    { label: '8–14 days', min: 8,  max: 14,   count: 0, color: '#dc2626' },
+    { label: '15+ days',  min: 15, max: 9999, count: 0, color: '#991b1b' }
+  ];
+  for (const r of onHoldCases) {
+    for (const b of holdAgingBuckets) {
+      if (r.daysOnHold >= b.min && r.daysOnHold <= b.max) { b.count++; break; }
+    }
+  }
+
+  // TAT by product category
+  const tatByCat = aggByCategory().map(c => {
+    const inCat = data.filter(r => r.productCat === c.name && r.tat != null && r.tat >= 0 && r.tat < 200);
+    if (inCat.length < 20) return null;
+    const avg = inCat.reduce((s,r) => s + r.tat, 0) / inCat.length;
+    return { name: c.name, avg, count: inCat.length };
+  }).filter(Boolean).sort((a,b) => b.avg - a.avg);
+
+  // Day-of-week throughput (Mon–Sun ship count)
+  const DOW_LABELS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const dowCounts = [0,0,0,0,0,0,0];
+  for (const r of data) {
+    if (r.shipped) dowCounts[new Date(r.shipped).getDay()]++;
+  }
+  // Reorder to Mon-first for business sense
+  const dowReordered = [1,2,3,4,5,6,0];
+  const dowChartLabels = dowReordered.map(i => DOW_LABELS[i]);
+  const dowChartData = dowReordered.map(i => dowCounts[i]);
+
+  // Doctors whose cases get held the most (indicates upstream info issues)
+  const docHoldMap = new Map();
+  for (const r of data) {
+    let d = docHoldMap.get(r.drId);
+    if (!d) { d = { drId: r.drId, name: r.drName, state: r.state, total: 0, held: 0 }; docHoldMap.set(r.drId, d); }
+    d.total++;
+    if (r.onHold) d.held++;
+  }
+  const docsHeld = Array.from(docHoldMap.values())
+    .filter(d => d.total >= 15 && d.held >= 3)
+    .map(d => ({ ...d, rate: d.held / d.total }))
+    .sort((a,b) => b.rate - a.rate)
+    .slice(0, 10);
+
+  el.innerHTML = `
+    <div class="section-header">
+      <div>
+        <div class="section-title">Operations</div>
+        <div class="section-sub">Holds, remakes, and turnaround — production quality and throughput.</div>
+      </div>
+      <div class="section-actions">
+        <button class="btn-text" id="opsExport">⬇ Export Ops Detail</button>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-label">Remake Rate</div><div class="kpi-value">${fmtPct(k.remakeRate)}</div><div class="kpi-sub">${fmtN(k.remakeCount)} cases reworked</div></div>
+      <div class="kpi"><div class="kpi-label">On-Hold Rate</div><div class="kpi-value">${fmtPct(k.onHoldRate)}</div><div class="kpi-sub">${fmtN(k.onHoldCount)} held cases</div></div>
+      <div class="kpi"><div class="kpi-label">Avg Turnaround</div><div class="kpi-value">${k.avgTAT == null ? '—' : k.avgTAT.toFixed(1) + '<span class="sup">d</span>'}</div><div class="kpi-sub">received → shipped</div></div>
+      <div class="kpi"><div class="kpi-label">Same-Week Ship</div><div class="kpi-value">${fmtPct(tatTotal ? (tatBuckets[0].count + tatBuckets[1].count)/tatTotal : 0)}</div><div class="kpi-sub">≤ 7 day turnaround</div></div>
+      <div class="kpi"><div class="kpi-label">Lab-Absorbed Cost</div><div class="kpi-value">${fmtUSD(labCost)}</div><div class="kpi-sub">sum of remake discounts</div></div>
+    </div>
+
+    <div class="flex-row">
+      <div class="card flex-1">
+        <div class="chart-title">Hold Reasons</div>
+        ${holdReasons.length ? '<div id="opsHold" class="hbar-list"></div>' : '<div class="dt-empty">No holds in this period.</div>'}
+      </div>
+      <div class="card flex-1">
+        <div class="chart-title">Remake Reasons</div>
+        ${remakeReasons.length ? '<div id="opsRemake" class="hbar-list"></div>' : '<div class="dt-empty">No remakes in this period.</div>'}
+      </div>
+    </div>
+
+    <div class="card mb20">
+      <div class="chart-title">Remake Rate by Product Category (≥30 cases)</div>
+      <div class="chart-wrap"><canvas id="opsCatRemake"></canvas></div>
+    </div>
+
+    <div class="flex-row">
+      <div class="card flex-1" style="padding:0">
+        <div class="card-head"><div><div class="card-title">Highest-Remake Doctors</div><div class="card-sub">≥10 cases · top 10</div></div></div>
+        <table class="dtable">
+          <thead><tr><th>Doctor</th><th class="num">Cases</th><th class="num">Remakes</th><th class="num">Rate</th></tr></thead>
+          <tbody>${docsHi.map(d => `
+            <tr class="clk" data-id="${esc(d.drId)}">
+              <td><b>${esc(d.name)}</b> <span class="text-mut" style="font-size:10px">${esc(d.state||'')}</span></td>
+              <td class="num">${fmtN(d.cases)}</td><td class="num">${fmtN(d.remakes)}</td>
+              <td class="num"><span class="tag ${d.remakeRate>0.1?'tag-red':'tag-amb'}">${fmtPct(d.remakeRate)}</span></td>
+            </tr>
+          `).join('') || '<tr><td colspan="4" class="dt-empty">No qualifying doctors</td></tr>'}</tbody>
+        </table>
+      </div>
+      <div class="card flex-1" style="padding:0">
+        <div class="card-head"><div><div class="card-title">Highest-Remake Products</div><div class="card-sub">≥20 cases · top 10</div></div></div>
+        <table class="dtable">
+          <thead><tr><th>Product</th><th class="num">Cases</th><th class="num">Remakes</th><th class="num">Rate</th></tr></thead>
+          <tbody>${prodsHi.map(p => `
+            <tr class="clk" data-product="${esc(p.name)}">
+              <td><b>${esc(p.name)}</b></td>
+              <td class="num">${fmtN(p.cases)}</td><td class="num">${fmtN(p.remakes)}</td>
+              <td class="num"><span class="tag ${p.remakeRate>0.1?'tag-red':'tag-amb'}">${fmtPct(p.remakeRate)}</span></td>
+            </tr>
+          `).join('') || '<tr><td colspan="4" class="dt-empty">No qualifying products</td></tr>'}</tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card mb20">
+      <div class="chart-title">Weekly Throughput — Cases Received vs Shipped</div>
+      <div class="card-sub" style="margin:-10px 0 10px;font-size:11px;color:var(--mut)">Last 26 weeks. A gap where received &gt; shipped means a growing backlog.</div>
+      <div class="chart-wrap"><canvas id="opsWeekly"></canvas></div>
+    </div>
+
+    <div class="flex-row">
+      <div class="card flex-1">
+        <div class="chart-title">Hold Aging — Currently-Held Cases</div>
+        <div class="card-sub" style="margin:-10px 0 10px;font-size:11px;color:var(--mut)">How long the cases sitting on hold right now have been waiting.</div>
+        <div class="chart-wrap short"><canvas id="opsHoldAging"></canvas></div>
+      </div>
+      <div class="card flex-1">
+        <div class="chart-title">Day-of-Week Throughput</div>
+        <div class="card-sub" style="margin:-10px 0 10px;font-size:11px;color:var(--mut)">Cases shipped by weekday — useful for staffing patterns.</div>
+        <div class="chart-wrap short"><canvas id="opsDow"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card mb20">
+      <div class="chart-title">Avg Turnaround by Product Category</div>
+      <div class="card-sub" style="margin:-10px 0 10px;font-size:11px;color:var(--mut)">Categories with ≥20 cases. Higher = slower production for that category.</div>
+      <div class="chart-wrap"><canvas id="opsTatCat"></canvas></div>
+    </div>
+
+    <div class="flex-row">
+      <div class="card flex-1" style="padding:0">
+        <div class="card-head"><div><div class="card-title">Doctors Whose Cases Get Held Most</div><div class="card-sub">≥15 cases & ≥3 holds · top 10</div></div></div>
+        <table class="dtable">
+          <thead><tr><th>Doctor</th><th class="num">Cases</th><th class="num">Held</th><th class="num">Rate</th></tr></thead>
+          <tbody>${docsHeld.map(d => `
+            <tr class="clk" data-id="${esc(d.drId)}">
+              <td><b>${esc(d.name)}</b> <span class="text-mut" style="font-size:10px">${esc(d.state||'')}</span></td>
+              <td class="num">${fmtN(d.total)}</td><td class="num">${fmtN(d.held)}</td>
+              <td class="num"><span class="tag ${d.rate>0.2?'tag-red':d.rate>0.1?'tag-amb':'tag-grn'}">${fmtPct(d.rate)}</span></td>
+            </tr>
+          `).join('') || '<tr><td colspan="4" class="dt-empty">No qualifying doctors</td></tr>'}</tbody>
+        </table>
+      </div>
+      <div class="card flex-1">
+        <div class="chart-title">TAT Distribution by Bucket</div>
+        <div class="card-sub" style="margin:-10px 0 10px;font-size:11px;color:var(--mut)">All cases with a recorded turnaround.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px">
+          ${tatBuckets.map(b => `
+            <div style="background:var(--bg);border-radius:8px;padding:14px 16px">
+              <div style="font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;font-weight:700;margin-bottom:4px">${esc(b.label)}</div>
+              <div style="font-size:22px;font-weight:800;font-variant-numeric:tabular-nums">${fmtN(b.count)}</div>
+              <div style="font-size:11px;color:var(--dim);margin-top:2px">${tatTotal?(b.count/tatTotal*100).toFixed(1):'0'}% of cases</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="card flush">
+      <div class="card-head"><div><div class="card-title">Cases on Hold</div><div class="card-sub">${onHoldCases.length.toLocaleString()} cases · sorted by days held</div></div></div>
+      <div class="table-scroll">
+        <table class="dtable">
+          <thead><tr><th>Case #</th><th>Doctor</th><th>Product</th><th>Reason</th><th class="num">Days Held</th><th>Received</th></tr></thead>
+          <tbody>${onHoldCases.slice(0, 250).map(r => `
+            <tr class="clk" data-id="${esc(r.drId)}">
+              <td class="text-mut" style="font-size:11px">${esc(r.caseNo)}</td>
+              <td><b>${esc(r.drName)}</b></td>
+              <td>${esc(r.product)}</td>
+              <td>${esc(r.onHoldReason)}</td>
+              <td class="num">${r.daysOnHold > 7 ? `<span class="tag tag-red">${r.daysOnHold}d</span>` : r.daysOnHold > 2 ? `<span class="tag tag-amb">${r.daysOnHold}d</span>` : r.daysOnHold + 'd'}</td>
+              <td>${fmtDate(r.received)}</td>
+            </tr>
+          `).join('') || '<tr><td colspan="6" class="dt-empty">No cases currently on hold.</td></tr>'}</tbody>
+        </table>
+      </div>
+      ${onHoldCases.length > 250 ? `<div style="padding:12px 20px;text-align:center;font-size:11px;color:var(--mut);border-top:1px solid var(--border)">Showing 250 of ${onHoldCases.length.toLocaleString()} — export for the full list</div>` : ''}
+    </div>
+  `;
+
+  document.getElementById('opsExport').addEventListener('click', () => {
+    downloadCSV('operations_holds_remakes.csv', [
+      ...data.filter(r => r.onHold).map(r => ({ type: 'hold', case_no: r.caseNo, doctor: r.drName, product: r.product, reason: r.onHoldReason, days: r.daysOnHold, date: isoDate(r.received) })),
+      ...data.filter(r => r.remake).map(r => ({ type: 'remake', case_no: r.caseNo, doctor: r.drName, product: r.product, reason: r.remakeReason, lab_discount: r.remakeDiscount, date: isoDate(r.anchorDate) }))
+    ]);
+  });
+  el.querySelectorAll('tr.clk[data-id]').forEach(tr => tr.addEventListener('click', () => { APP.selectedDoctorId = tr.dataset.id; switchTab('docdetail'); }));
+  el.querySelectorAll('tr.clk[data-product]').forEach(tr => tr.addEventListener('click', () => { APP.selectedProduct = tr.dataset.product; switchTab('proddetail'); }));
+
+  if (holdReasons.length) renderHBars('opsHold', holdReasons.slice(0, 8).map(h => [h.name, h.count]), 'count',
+    (reason) => openDoctorModal(
+      'Hold Reason: ' + reason,
+      'Doctors with cases held for this reason',
+      aggDoctorsWhere(r => r.onHold && (r.onHoldReason || 'Unspecified') === reason),
+      'hold_' + reason.toLowerCase().replace(/[^a-z0-9]+/g,'_') + '.csv'
+    ));
+  if (remakeReasons.length) renderHBars('opsRemake', remakeReasons.slice(0, 8).map(h => [h.name, h.count]), 'count',
+    (reason) => openDoctorModal(
+      'Remake Reason: ' + reason,
+      'Doctors with remakes for this reason',
+      aggDoctorsWhere(r => r.remake && (r.remakeReason || 'Unspecified') === reason),
+      'remake_' + reason.toLowerCase().replace(/[^a-z0-9]+/g,'_') + '.csv'
+    ));
+
+  const co = commonChartOpts();
+  // Weekly throughput — dual line
+  makeChart('opsWeekly', {
+    type: 'line',
+    data: {
+      labels: weeklyThroughput.map(w => {
+        const d = new Date(w.wk); return (d.getMonth()+1) + '/' + d.getDate();
+      }),
+      datasets: [
+        { label: 'Received', data: weeklyThroughput.map(w => w.received), borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.1)', borderWidth: 2.5, tension: .3, fill: false, pointRadius: 2 },
+        { label: 'Shipped',  data: weeklyThroughput.map(w => w.shipped),  borderColor: '#059669', backgroundColor: 'rgba(5,150,105,.1)', borderWidth: 2.5, tension: .3, fill: false, pointRadius: 2 }
+      ]
+    },
+    options: { ...co, plugins: { ...co.plugins, legend: { ...co.plugins.legend, position: 'bottom' } } }
+  });
+
+  // Hold aging — horizontal bar
+  makeChart('opsHoldAging', {
+    type: 'bar',
+    data: {
+      labels: holdAgingBuckets.map(b => b.label),
+      datasets: [{ label: 'Cases on hold', data: holdAgingBuckets.map(b => b.count), backgroundColor: holdAgingBuckets.map(b => b.color), borderRadius: 4 }]
+    },
+    options: { ...co, indexAxis: 'y', plugins: { ...co.plugins, legend: { display: false } }, scales: { x: { ...co.scales.x, beginAtZero: true }, y: co.scales.y } }
+  });
+
+  // Day-of-week throughput
+  makeChart('opsDow', {
+    type: 'bar',
+    data: { labels: dowChartLabels, datasets: [{ label: 'Cases shipped', data: dowChartData, backgroundColor: '#7c3aed', borderRadius: 4 }] },
+    options: { ...co, plugins: { ...co.plugins, legend: { display: false } } }
+  });
+
+  // TAT by product category
+  makeChart('opsTatCat', {
+    type: 'bar',
+    data: {
+      labels: tatByCat.map(c => c.name),
+      datasets: [{ label: 'Avg TAT (days)', data: tatByCat.map(c => +c.avg.toFixed(1)), backgroundColor: tatByCat.map(c => c.avg > 14 ? '#dc2626' : c.avg > 10 ? '#d97706' : '#059669'), borderRadius: 3 }]
+    },
+    options: { ...co, indexAxis: 'y', plugins: { ...co.plugins, legend: { display: false } }, scales: { x: { ...co.scales.x, beginAtZero: true, ticks: { ...co.scales.x.ticks, callback: v => v + 'd' } }, y: co.scales.y } }
+  });
+
+  makeChart('opsCatRemake', { type: 'bar', data: {
+      labels: catRemakes.map(c => c.name),
+      datasets: [
+        { label: 'Total Cases', data: catRemakes.map(c => c.total), backgroundColor: 'rgba(37,99,235,.25)', borderRadius: 3 },
+        { label: 'Remakes', data: catRemakes.map(c => c.remakes), backgroundColor: '#dc2626', borderRadius: 3 }
+      ]
+    },
+    options: { ...co, indexAxis: 'y', scales: { x: { ...co.scales.x, beginAtZero: true }, y: co.scales.y } } });
+}
+
+/* ═══════════════════════════════════════════════════════════════
    TAB 9: CLIENT TIMELINE — card grid with gap detection
    (rebuilt to match the original layout)
    ═══════════════════════════════════════════════════════════════ */
@@ -4531,10 +4803,11 @@ function tlCompute() {
     const key = r.drId;
     if (!key) continue;
     let c = cmap.get(key);
-    if (!c) { c = { drId: key, name: r.drName, city: r.city || '', state: r.state || '', cases: [] }; cmap.set(key, c); }
+    if (!c) { c = { drId: key, name: r.drName, practice: r.practice || '', practices: new Map(), city: r.city || '', state: r.state || '', cases: [] }; cmap.set(key, c); }
     c.cases.push({ date: r.anchorDate, product: r.product, caseNum: r.caseNo });
     if (r.city && !c.city) c.city = r.city;
     if (r.state && !c.state) c.state = r.state;
+    tallyPractice(c.practices, r.practice);
   }
 
   TL.all = Array.from(cmap.values()).map(c => {
@@ -4567,8 +4840,9 @@ function tlCompute() {
     const pSet = new Set();
     for (const x of valid) { if (x.product && !pSet.has(x.product)) { pSet.add(x.product); allProducts.push(x.product); } }
 
+    const tlPracticeInfo = buildPracticeInfo(c.practices);
     return {
-      drId: c.drId, name: c.name, city: c.city, state: c.state,
+      drId: c.drId, name: c.name, practice: tlPracticeInfo.primary || c.practice || '', practiceInfo: tlPracticeInfo, city: c.city, state: c.state,
       firstDate: firstCase.date, firstProduct: firstCase.product,
       lastDate: lastCase.date, lastProduct: lastCase.product,
       totalCases: uniqueCases.size,
@@ -4592,7 +4866,7 @@ function renderTimeline() {
     <div class="tl-stats-bar" id="tlStatsBar"></div>
 
     <div class="tl-toolbar">
-      <input type="text" id="tlSearch" placeholder="Search by dentist name, city, state, or product…">
+      <input type="text" id="tlSearch" placeholder="Search by dentist name, practice, city, state, or product…">
       <select id="tlStatusFilter">
         <option value="all">All Clients</option>
         <option value="active">Active</option>
@@ -4661,7 +4935,7 @@ function tlApplyFilters() {
     if (status === 'has-gaps' && c.gapCount === 0) return false;
     if (stateVal !== 'all' && c.state !== stateVal) return false;
     if (q) {
-      const hs = (c.name + ' ' + c.city + ' ' + c.state + ' ' + c.allProducts.join(' ')).toLowerCase();
+      const hs = (c.name + ' ' + (c.practice || '') + ' ' + c.city + ' ' + c.state + ' ' + c.allProducts.join(' ')).toLowerCase();
       if (!hs.includes(q)) return false;
     }
     return true;
@@ -4741,6 +5015,7 @@ function tlRenderCards() {
         <div class="tl-card-header">
           <div>
             <div class="tl-cname">${esc(c.name)}</div>
+            ${practiceDisplayHTML(c.practiceInfo, 'tl-cpractice')}
             <div class="tl-cloc">${esc(c.city)}${c.city && c.state ? ', ' : ''}${c.state ? `<a class="tl-state-link" href="#" data-state="${esc(c.state)}">${esc(c.state)}</a>` : ''}</div>
           </div>
           <div class="tl-card-badges">
@@ -4948,7 +5223,7 @@ function openStateDoctorModal(sd) {
     if (r.state !== sd.name && r.stateAbbr !== sd.abbr) continue;
     let d = map.get(r.drId);
     if (!d) {
-      d = { drId: r.drId, name: r.drName, email: r.email, phone: r.phone,
+      d = { drId: r.drId, name: r.drName, practice: r.practice || "", email: r.email, phone: r.phone,
             city: r.city, state: r.stateAbbr || r.state,
             revenue: 0, cases: 0, units: 0, firstDate: null, lastDate: null };
       map.set(r.drId, d);
