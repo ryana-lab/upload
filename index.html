@@ -261,6 +261,7 @@ html, body {
 .status-badge.lg .status-label { font-size: 12px; letter-spacing: .04em; }
 .dr-name { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .dr-loc { font-size: 11px; color: var(--mut); margin-top: 3px; }
+.dr-practice { font-size: 12px; color: var(--ink); font-weight: 600; margin-top: 2px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; opacity: 0.85; }
 .dr-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 12px; margin-bottom: 12px; padding: 10px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .dr-stats label { color: var(--mut); display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; margin-bottom: 2px; }
 .dr-stats .val { font-weight: 700; color: var(--ink); font-size: 15px; font-variant-numeric: tabular-nums; }
@@ -331,6 +332,7 @@ html, body {
 .back-btn { font-family: inherit; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 6px; border: 1px solid var(--border); background: #fff; color: var(--dim); cursor: pointer; transition: all .15s; }
 .back-btn:hover { border-color: var(--accent); color: var(--accent); }
 .detail-name { font-size: 22px; font-weight: 800; letter-spacing: -.025em; color: var(--ink); }
+.detail-practice { font-size: 13px; color: var(--ink); font-weight: 600; margin-top: 4px; opacity: 0.75; letter-spacing: -.005em; }
 .detail-meta { font-size: 12px; color: var(--mut); display: flex; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
 .detail-meta span::before { content: "•"; margin-right: 6px; color: var(--accent); }
 .detail-meta span:first-child::before { display: none; }
@@ -376,6 +378,7 @@ html, body {
 .sh-list-row:last-child { border-bottom: none; }
 .sh-list-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; color: var(--ink); }
 .sh-list-meta { font-size: 11px; color: var(--mut); margin-top: 2px; font-weight: 400; }
+.sh-list-practice { font-size: 11.5px; color: var(--ink); font-weight: 600; opacity: 0.8; margin-top: 2px; }
 .sh-list-val { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); text-align: right; }
 .sh-pill { display: inline-flex; align-items: center; font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
 .sh-pill.ok     { background: var(--grn-soft);    color: var(--grn); }
@@ -423,6 +426,7 @@ html, body {
 .tl-client-card:hover { box-shadow: var(--shadow-md); border-color: var(--accent); }
 .tl-card-header { display: flex; align-items: flex-start; justify-content: space-between; padding: 18px 18px 10px; gap: 10px; }
 .tl-card-header .tl-cname { font-weight: 700; font-size: 15px; color: var(--ink); line-height: 1.2; }
+.tl-card-header .tl-cpractice { font-size: 12px; color: var(--ink); font-weight: 600; margin-top: 3px; opacity: 0.78; line-height: 1.25; }
 .tl-card-header .tl-cloc { font-size: 11px; color: var(--mut); margin-top: 3px; }
 .tl-card-badges { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
 .tl-badge-active { display: inline-flex; align-items: center; gap: 5px; padding: 4px 11px; border-radius: 20px; font-size: 11px; font-weight: 600; background: var(--grn-soft); color: var(--grn); }
@@ -567,6 +571,7 @@ html, body {
 .dm-row:hover { background: var(--bg); }
 .dm-row + .dm-row { border-top: 1px solid rgba(226,232,240,.6); }
 .dm-row-name { font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.dm-row-practice { font-size: 12px; color: var(--ink); font-weight: 600; opacity: 0.78; margin-top: 3px; line-height: 1.3; }
 .dm-row-meta { font-size: 12px; color: var(--mut); margin-top: 3px; line-height: 1.5; }
 .dm-row-val { text-align: right; }
 .dm-row-rev { font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; font-size: 15px; }
@@ -1204,6 +1209,10 @@ function normalizeRecords(rows) {
       drLast: lastName,
       drName,
       drId: doctorId,
+      // Practice name (from `pracname` column) — the dental practice the
+      // doctor works at. Read with fallbacks in case the column name varies
+      // across CSV exports.
+      practice: titleCase((r.pracname || r.Practice_Name || r.practice || '').toString().trim()),
       email,
       phone,
       address: r.address || '',
@@ -1325,6 +1334,7 @@ function aggByDoctor() {
         d = {
           drId: r.drId,
           name: r.drName || '(unknown)',
+          practice: r.practice || '',
           email: r.email,
           phone: r.phone,
           city: r.city,
@@ -1646,6 +1656,7 @@ function openDoctorModal(title, sub, docs, exportName) {
   const view = (docs || []).map(d => ({
     id:       d.drId || d.id || '',
     name:     d.name || d.drName || d.nm || '—',
+    practice: d.practice || '',
     city:     d.city || '',
     state:    d.stateAbbr || d.state || '',
     email:    d.email || '',
@@ -1693,6 +1704,7 @@ function openDoctorModal(title, sub, docs, exportName) {
               ${d.state ? `<span class="dm-pill muted">${esc(d.state)}</span>` : ''}
               ${pill}
             </div>
+            ${d.practice ? `<div class="dm-row-practice">${esc(d.practice)}</div>` : ''}
             <div class="dm-row-meta">${meta || '—'}</div>
             ${d.extra ? `<div class="dm-row-meta" style="margin-top:4px;color:var(--accent);font-weight:600">${esc(d.extra)}</div>` : ''}
           </div>
@@ -1731,7 +1743,7 @@ function aggDoctorsWhere(predicate) {
     if (!predicate(r)) continue;
     let d = map.get(r.drId);
     if (!d) {
-      d = { drId: r.drId, name: r.drName, email: r.email, phone: r.phone,
+      d = { drId: r.drId, name: r.drName, practice: r.practice || "", email: r.email, phone: r.phone,
             city: r.city, state: r.stateAbbr || r.state,
             revenue: 0, cases: 0, units: 0, firstDate: null, lastDate: null };
       map.set(r.drId, d);
@@ -2510,7 +2522,7 @@ function renderSalesHub() {
   for (const r of APP.raw) {
     let d = docMap.get(r.drId);
     if (!d) {
-      d = { drId: r.drId, name: r.drName, email: r.email, city: r.city, state: r.state,
+      d = { drId: r.drId, name: r.drName, practice: r.practice || "", email: r.email, city: r.city, state: r.state,
             cases: 0, rv: 0, units: 0, dates: [], products: new Set(),
             firstDate: null, lastDate: null };
       docMap.set(r.drId, d);
@@ -3044,6 +3056,7 @@ function renderSalesHub() {
       <div class="sh-list-row" data-id="${esc(it.id)}">
         <div>
           <div class="sh-list-name">${esc(it.name)}</div>
+          ${it.practice ? `<div class="sh-list-practice">${esc(it.practice)}</div>` : ''}
           <div class="sh-list-meta">${esc(it.meta)}</div>
         </div>
         ${it.pill ? `<span class="sh-pill ${it.pillClass}">${esc(it.pill)}</span>` : '<span></span>'}
@@ -3056,29 +3069,34 @@ function renderSalesHub() {
   }
 
   shList('shRiskList', atRiskHV.slice(0, 15).map(d => ({
-    id: d.drId, name: d.name, meta: `${d.city || '—'}, ${d.state || ''} · ${d.cases} cases`,
+    id: d.drId, name: d.name, practice: d.practice || '',
+    meta: `${d.city || '—'}, ${d.state || ''} · ${d.cases} cases`,
     pill: `${d.dsl}d silent`, pillClass: 'warn', val: fmtUSD(d.rv)
   })), { empty: 'No high-value at-risk accounts — good sign.' });
 
   shList('shWinList', winbackTargets.map(d => ({
-    id: d.drId, name: d.name, meta: `${d.city || '—'}, ${d.state || ''} · last case ${fmtDateShort(d.lastDate)}`,
+    id: d.drId, name: d.name, practice: d.practice || '',
+    meta: `${d.city || '—'}, ${d.state || ''} · last case ${fmtDateShort(d.lastDate)}`,
     pill: `${d.dsl}d gone`, pillClass: 'danger', val: fmtUSD(d.rv)
   })), { empty: 'No recent high-value churn to win back.' });
 
   shList('shTopList', top10.map((d, i) => ({
-    id: d.drId, name: `${i+1}. ${d.name}`, meta: `${d.city || '—'}, ${d.state || ''} · ${d.cases} cases · ${d.pCount} products`,
+    id: d.drId, name: `${i+1}. ${d.name}`, practice: d.practice || '',
+    meta: `${d.city || '—'}, ${d.state || ''} · ${d.cases} cases · ${d.pCount} products`,
     pill: d.dsl != null ? (d.dsl <= 30 ? 'Active' : d.dsl <= SH_RISK_HI ? 'At-risk' : 'Churned') : '',
     pillClass: d.dsl != null ? (d.dsl <= 30 ? 'ok' : d.dsl <= SH_RISK_HI ? 'warn' : 'danger') : 'info',
     val: fmtUSD(d.rv)
   })), { empty: 'No doctors.' });
 
   shList('shGrowList', growers.slice(0, 10).map(g => ({
-    id: g.dr.drId, name: g.dr.name, meta: `${fmtUSD(g.prior)} → ${fmtUSD(g.recent)} (3mo)`,
+    id: g.dr.drId, name: g.dr.name, practice: g.dr.practice || '',
+    meta: `${fmtUSD(g.prior)} → ${fmtUSD(g.recent)} (3mo)`,
     pill: `+${g.pct.toFixed(0)}%`, pillClass: 'ok', val: '+' + fmtUSD(g.delta)
   })), { empty: 'No clear accelerators this quarter.' });
 
   shList('shDeclList', decliners.slice(0, 10).map(g => ({
-    id: g.dr.drId, name: g.dr.name, meta: `${fmtUSD(g.prior)} → ${fmtUSD(g.recent)} (3mo)`,
+    id: g.dr.drId, name: g.dr.name, practice: g.dr.practice || '',
+    meta: `${fmtUSD(g.prior)} → ${fmtUSD(g.recent)} (3mo)`,
     pill: `${g.pct.toFixed(0)}%`, pillClass: 'danger', val: fmtUSD(g.delta)
   })), { empty: 'No clear decliners this quarter.' });
 
@@ -3292,7 +3310,7 @@ function renderDoctorGrid() {
 
     <div class="filter-bar">
       <div class="search-wrap">
-        <input type="text" class="search-input" id="dgQuery" placeholder="Search by name, email, city, or state…">
+        <input type="text" class="search-input" id="dgQuery" placeholder="Search by name, practice, email, city, or state…">
       </div>
       <div class="pill-group" id="dgSort">
         <button class="pill active" data-sort="revenue">Revenue</button>
@@ -3333,10 +3351,11 @@ function dgFilteredDocs() {
   if (DGRID.query) {
     const qq = DGRID.query;
     docs = docs.filter(d =>
-      (d.name && d.name.toLowerCase().includes(qq)) ||
-      (d.email && d.email.toLowerCase().includes(qq)) ||
-      (d.city && d.city.toLowerCase().includes(qq)) ||
-      (d.state && d.state.toLowerCase().includes(qq))
+      (d.name     && d.name.toLowerCase().includes(qq))     ||
+      (d.practice && d.practice.toLowerCase().includes(qq)) ||
+      (d.email    && d.email.toLowerCase().includes(qq))    ||
+      (d.city     && d.city.toLowerCase().includes(qq))     ||
+      (d.state    && d.state.toLowerCase().includes(qq))
     );
   }
   if (DGRID.sort === 'name') docs.sort((a,b) => a.name.localeCompare(b.name));
@@ -3366,6 +3385,7 @@ function drawDGrid() {
         <div class="dr-card-head">
           <div style="min-width:0">
             <div class="dr-name">${esc(d.name)}</div>
+            ${d.practice ? `<div class="dr-practice" title="Practice">${esc(d.practice)}</div>` : ''}
             <div class="dr-loc">${esc(d.city || '—')}${d.state ? ', ' + esc(d.state) : ''}</div>
             ${statusBadgeHTML(d.drId, 'sm')}
           </div>
@@ -3493,6 +3513,7 @@ function renderDoctorDetail() {
           <span>${esc(s.drName)}</span>
           ${statusBadgeHTML(APP.selectedDoctorId, 'lg')}
         </div>
+        ${s.practice ? `<div class="detail-practice">${esc(s.practice)}</div>` : ''}
         <div class="detail-meta">
           ${s.email ? `<span>${esc(s.email)}</span>` : ''}
           ${s.phone ? `<span>${esc(s.phone)}</span>` : ''}
@@ -3689,7 +3710,7 @@ function computeDoctorStatus() {
     let d = map.get(r.drId);
     if (!d) {
       d = {
-        drId: r.drId, name: r.drName, email: r.email, phone: r.phone, address: r.address,
+        drId: r.drId, name: r.drName, practice: r.practice || "", email: r.email, phone: r.phone, address: r.address,
         city: r.city, state: r.state, stateAbbr: r.stateAbbr,
         totalCases: 0, totalRev: 0, totalUnits: 0, remakes: 0,
         tatSum: 0, tatN: 0,
@@ -3823,7 +3844,7 @@ function renderStatus() {
 
     <div class="filter-bar">
       <div class="search-wrap">
-        <input type="text" class="search-input" id="stQuery" placeholder="Search by name, email, city, state…" value="${esc(STATUS.query)}">
+        <input type="text" class="search-input" id="stQuery" placeholder="Search by name, practice, email, city, state…" value="${esc(STATUS.query)}">
       </div>
       <div class="text-mut" style="font-size:12px;margin-left:auto" id="stCount"></div>
     </div>
@@ -3884,11 +3905,12 @@ function filterStatusSegment(docs) {
   else                          segDocs = docs.filter(d => d.status === STATUS.seg);
   if (STATUS.query) {
     segDocs = segDocs.filter(d =>
-      (d.name  || '').toLowerCase().includes(STATUS.query) ||
-      (d.email || '').toLowerCase().includes(STATUS.query) ||
-      (d.phone || '').toLowerCase().includes(STATUS.query) ||
-      (d.city  || '').toLowerCase().includes(STATUS.query) ||
-      (d.state || '').toLowerCase().includes(STATUS.query)
+      (d.name     || '').toLowerCase().includes(STATUS.query) ||
+      (d.practice || '').toLowerCase().includes(STATUS.query) ||
+      (d.email    || '').toLowerCase().includes(STATUS.query) ||
+      (d.phone    || '').toLowerCase().includes(STATUS.query) ||
+      (d.city     || '').toLowerCase().includes(STATUS.query) ||
+      (d.state    || '').toLowerCase().includes(STATUS.query)
     );
   }
   return segDocs;
@@ -3903,6 +3925,7 @@ function drawStatusBody(docs, segs) {
   const isWb = STATUS.seg === 'winback';
   const cols = [
     { key: 'name',         label: 'Doctor',            cls: '',     get: d => (d.name || '').toLowerCase() },
+    { key: 'practice',     label: 'Practice',          cls: '',     get: d => (d.practice || '').toLowerCase() },
     { key: 'email',        label: 'Email',             cls: '',     get: d => (d.email || '').toLowerCase() },
     { key: 'phone',        label: 'Phone',             cls: '',     get: d => (d.phone || '') },
     { key: 'address',      label: 'Address',           cls: '',     get: d => (d.address || '').toLowerCase() },
@@ -3993,6 +4016,7 @@ function drawStatusBody(docs, segs) {
     return `
       <tr class="clk" data-id="${esc(d.drId)}">
         <td><b>${esc(d.name)}</b>${isWb ? '<span class="st-wb-icon" title="Winback">🔄</span>' : ''}</td>
+        <td>${d.practice ? esc(d.practice) : '<span class="text-mut">—</span>'}</td>
         <td>${emailLink}</td>
         <td>${phoneLink}</td>
         <td title="${esc(d.address || '')}">${addressShort}</td>
@@ -4684,10 +4708,11 @@ function tlCompute() {
     const key = r.drId;
     if (!key) continue;
     let c = cmap.get(key);
-    if (!c) { c = { drId: key, name: r.drName, city: r.city || '', state: r.state || '', cases: [] }; cmap.set(key, c); }
+    if (!c) { c = { drId: key, name: r.drName, practice: r.practice || '', city: r.city || '', state: r.state || '', cases: [] }; cmap.set(key, c); }
     c.cases.push({ date: r.anchorDate, product: r.product, caseNum: r.caseNo });
     if (r.city && !c.city) c.city = r.city;
     if (r.state && !c.state) c.state = r.state;
+    if (r.practice && !c.practice) c.practice = r.practice;
   }
 
   TL.all = Array.from(cmap.values()).map(c => {
@@ -4721,7 +4746,7 @@ function tlCompute() {
     for (const x of valid) { if (x.product && !pSet.has(x.product)) { pSet.add(x.product); allProducts.push(x.product); } }
 
     return {
-      drId: c.drId, name: c.name, city: c.city, state: c.state,
+      drId: c.drId, name: c.name, practice: c.practice || '', city: c.city, state: c.state,
       firstDate: firstCase.date, firstProduct: firstCase.product,
       lastDate: lastCase.date, lastProduct: lastCase.product,
       totalCases: uniqueCases.size,
@@ -4745,7 +4770,7 @@ function renderTimeline() {
     <div class="tl-stats-bar" id="tlStatsBar"></div>
 
     <div class="tl-toolbar">
-      <input type="text" id="tlSearch" placeholder="Search by dentist name, city, state, or product…">
+      <input type="text" id="tlSearch" placeholder="Search by dentist name, practice, city, state, or product…">
       <select id="tlStatusFilter">
         <option value="all">All Clients</option>
         <option value="active">Active</option>
@@ -4814,7 +4839,7 @@ function tlApplyFilters() {
     if (status === 'has-gaps' && c.gapCount === 0) return false;
     if (stateVal !== 'all' && c.state !== stateVal) return false;
     if (q) {
-      const hs = (c.name + ' ' + c.city + ' ' + c.state + ' ' + c.allProducts.join(' ')).toLowerCase();
+      const hs = (c.name + ' ' + (c.practice || '') + ' ' + c.city + ' ' + c.state + ' ' + c.allProducts.join(' ')).toLowerCase();
       if (!hs.includes(q)) return false;
     }
     return true;
@@ -4894,6 +4919,7 @@ function tlRenderCards() {
         <div class="tl-card-header">
           <div>
             <div class="tl-cname">${esc(c.name)}</div>
+            ${c.practice ? `<div class="tl-cpractice">${esc(c.practice)}</div>` : ''}
             <div class="tl-cloc">${esc(c.city)}${c.city && c.state ? ', ' : ''}${c.state ? `<a class="tl-state-link" href="#" data-state="${esc(c.state)}">${esc(c.state)}</a>` : ''}</div>
           </div>
           <div class="tl-card-badges">
@@ -5101,7 +5127,7 @@ function openStateDoctorModal(sd) {
     if (r.state !== sd.name && r.stateAbbr !== sd.abbr) continue;
     let d = map.get(r.drId);
     if (!d) {
-      d = { drId: r.drId, name: r.drName, email: r.email, phone: r.phone,
+      d = { drId: r.drId, name: r.drName, practice: r.practice || "", email: r.email, phone: r.phone,
             city: r.city, state: r.stateAbbr || r.state,
             revenue: 0, cases: 0, units: 0, firstDate: null, lastDate: null };
       map.set(r.drId, d);
