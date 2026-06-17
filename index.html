@@ -1153,7 +1153,7 @@ function normalizeRecords(rows) {
       const invDay = Date.UTC(invDate.getFullYear(), invDate.getMonth(), invDate.getDate());
       const daysPastDue = Math.round((invDay - dueDay) / 86400000);
       if      (daysPastDue < 0)  onTimeStatus = 'early';
-      else if (daysPastDue <= 1) onTimeStatus = 'ontime';
+      else if (daysPastDue <= 0) onTimeStatus = 'ontime';
       else                       onTimeStatus = 'late';
     }
     const stateName = normalizeState(r.state);
