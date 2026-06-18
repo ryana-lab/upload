@@ -336,6 +336,10 @@ html, body {
 .back-btn:hover { border-color: var(--accent); color: var(--accent); }
 .detail-name { font-size: 22px; font-weight: 800; letter-spacing: -.025em; color: var(--ink); }
 .detail-practice { font-size: 13px; color: var(--ink); font-weight: 600; margin-top: 4px; opacity: 0.75; letter-spacing: -.005em; }
+.detail-practice-multi { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; opacity: 1; }
+.detail-practice-multi .dp-label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--mut); font-weight: 700; }
+.detail-practice-multi .dp-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--ink); background: var(--card-2); border: 1px solid var(--border); padding: 3px 9px; border-radius: 999px; }
+.detail-practice-multi .dp-count { font-size: 10.5px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 0 6px; border-radius: 999px; font-variant-numeric: tabular-nums; }
 .detail-meta { font-size: 12px; color: var(--mut); display: flex; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
 .detail-meta span::before { content: "•"; margin-right: 6px; color: var(--accent); }
 .detail-meta span:first-child::before { display: none; }
@@ -931,8 +935,8 @@ function practiceDisplayHTML(info, cls) {
   const extra = info.count - 1;
   let badge = '';
   if (extra > 0) {
-    const tip = info.list.map(p => `${p.name} (${p.count})`).join(' · ');
-    badge = `<span class="practice-more" title="${esc(tip)}">+${extra} more</span>`;
+    const tip = 'Also at: ' + info.list.slice(1).map(p => `${p.name} (${p.count})`).join(', ') + ' — open the doctor for the full list';
+    badge = `<span class="practice-more" title="${esc(tip)}">+${extra}</span>`;
   }
   return `<div class="${cls}" title="${esc(info.primary)}"><span class="practice-name">${esc(info.primary)}</span>${badge}</div>`;
 }
@@ -3597,7 +3601,13 @@ function renderDoctorDetail() {
           <span>${esc(s.drName)}</span>
           ${statusBadgeHTML(APP.selectedDoctorId, 'lg')}
         </div>
-        ${practiceDisplayHTML(ddPracticeInfo, 'detail-practice')}
+        ${ddPracticeInfo.primary ? (ddPracticeInfo.count === 1
+            ? `<div class="detail-practice">${esc(ddPracticeInfo.primary)}</div>`
+            : `<div class="detail-practice detail-practice-multi">
+                 <span class="dp-label">${ddPracticeInfo.count} practices:</span>
+                 ${ddPracticeInfo.list.map(p => `<span class="dp-chip">${esc(p.name)} <span class="dp-count">${p.count}</span></span>`).join('')}
+               </div>`
+          ) : ''}
         <div class="detail-meta">
           ${s.email ? `<span>${esc(s.email)}</span>` : ''}
           ${s.phone ? `<span>${esc(s.phone)}</span>` : ''}
